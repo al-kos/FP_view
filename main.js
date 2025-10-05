@@ -81,42 +81,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Header scroll behavior
-// let lastScrollTop = 0;
-// const header = document.querySelector('.header');
-
-// window.addEventListener('scroll', () => {
-//   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-//   if (scrollTop > lastScrollTop && scrollTop > 100) {
-//     header.style.transform = 'translateY(-100%)';
-//   } else {
-//     header.style.transform = 'translateY(0)';
-//   }
-
-//   lastScrollTop = scrollTop;
-// });
-
-// Form submission
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Here you would typically send the form data to a server
-    const formData = new FormData(this);
-    const formObject = Object.fromEntries(formData);
-
-    console.log('Form submitted:', formObject);
-
-    // Show success message (you can replace this with a proper notification)
-    alert(
-      'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.',
-    );
-    this.reset();
-  });
-}
-
 // Initialize animations on page load
 document.addEventListener('DOMContentLoaded', function () {
   // Trigger initial animations
@@ -131,3 +95,191 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add loading class for better UX
   document.body.classList.add('loaded');
 });
+
+//
+
+// Schedule filtering functionality
+document.addEventListener('DOMContentLoaded', function () {
+  const scheduleFilters = document.querySelectorAll('.schedule-filter');
+  const scheduleCards = document.querySelectorAll('.schedule-card');
+  const scheduleDayGroups = document.querySelectorAll('.schedule-day-group');
+  const scheduleEmpty = document.querySelector('.schedule-empty');
+
+  // Highlight current day
+  function highlightCurrentDay() {
+    const days = [
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
+    ];
+    const today = new Date().getDay();
+    const todayName = days[today];
+
+    scheduleDayGroups.forEach((group) => {
+      const day = group.getAttribute('data-day');
+      if (day === todayName) {
+        group.classList.add('active-day');
+        const title = group.querySelector('.schedule-day-title');
+        if (title && !title.querySelector('.current-day-indicator')) {
+          const indicator = document.createElement('span');
+          indicator.className = 'current-day-indicator';
+          indicator.textContent = 'Сегодня';
+          title.appendChild(indicator);
+        }
+      }
+    });
+  }
+
+  // Filter schedule
+  function filterSchedule(filter) {
+    let hasVisibleCards = false;
+    let hasVisibleDays = false;
+
+    scheduleCards.forEach((card) => {
+      const cardType = card.getAttribute('data-type');
+
+      if (filter === 'all' || cardType === filter) {
+        card.classList.remove('hidden');
+        hasVisibleCards = true;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // Show/hide day groups based on visible cards
+    scheduleDayGroups.forEach((group) => {
+      const dayCards = group.querySelectorAll('.schedule-card');
+      const visibleDayCards = group.querySelectorAll(
+        '.schedule-card:not(.hidden)',
+      );
+
+      if (visibleDayCards.length > 0) {
+        group.classList.remove('hidden');
+        hasVisibleDays = true;
+      } else {
+        group.classList.add('hidden');
+      }
+    });
+
+    // Show empty state if no cards visible
+    if (hasVisibleDays) {
+      scheduleEmpty.classList.remove('visible');
+    } else {
+      scheduleEmpty.classList.add('visible');
+    }
+  }
+
+  // Initialize filters
+  scheduleFilters.forEach((filter) => {
+    filter.addEventListener('click', function () {
+      const filterValue = this.getAttribute('data-filter');
+
+      // Update active filter
+      scheduleFilters.forEach((f) => f.classList.remove('active'));
+      this.classList.add('active');
+
+      // Apply filter
+      filterSchedule(filterValue);
+    });
+  });
+
+  // Mobile filter enhancement
+  function initMobileFilters() {
+    if (window.innerWidth <= 768) {
+      scheduleFilters.forEach((filter) => {
+        filter.setAttribute('aria-label', `Показать ${filter.textContent}`);
+      });
+    }
+  }
+
+  // Keyboard navigation for filters
+  function initKeyboardNavigation() {
+    scheduleFilters.forEach((filter, index) => {
+      filter.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          const nextIndex = (index + 1) % scheduleFilters.length;
+          scheduleFilters[nextIndex].focus();
+        }
+
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prevIndex =
+            (index - 1 + scheduleFilters.length) % scheduleFilters.length;
+          scheduleFilters[prevIndex].focus();
+        }
+      });
+    });
+  }
+
+  // Initialize
+  highlightCurrentDay();
+  initMobileFilters();
+  initKeyboardNavigation();
+
+  // Re-initialize on resize
+  window.addEventListener('resize', initMobileFilters);
+
+  // Add empty state message if not exists
+  if (!scheduleEmpty) {
+    const emptyDiv = document.createElement('div');
+    emptyDiv.className = 'schedule-empty';
+    emptyDiv.innerHTML = `
+      <div style="font-size: 48px; margin-bottom: 20px;">🥊</div>
+      <h3 style="color: #ffffff; margin-bottom: 10px;">Тренировки не найдены</h3>
+      <p>Попробуйте выбрать другой фильтр</p>
+    `;
+    document.querySelector('.schedule-cards').appendChild(emptyDiv);
+  }
+});
+
+// Additional utility functions for schedule
+function getTodaySchedule() {
+  const days = [
+    'sunday',
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
+  ];
+  const today = new Date().getDay();
+  const todayName = days[today];
+
+  return document.querySelector(`.schedule-day-group[data-day="${todayName}"]`);
+}
+
+function scrollToToday() {
+  const todaySchedule = getTodaySchedule();
+  if (todaySchedule) {
+    todaySchedule.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+}
+
+// Export functions for global access (if needed)
+window.scheduleUtils = {
+  filterSchedule: function (filter) {
+    const filterBtn = document.querySelector(`[data-filter="${filter}"]`);
+    if (filterBtn) filterBtn.click();
+  },
+  showToday: function () {
+    scrollToToday();
+  },
+  showAll: function () {
+    const allFilter = document.querySelector('[data-filter="all"]');
+    if (allFilter) allFilter.click();
+  },
+};
