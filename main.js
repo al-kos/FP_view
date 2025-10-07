@@ -322,6 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
   MobileMenu.init();
   ScrollAnimations.init();
   ScheduleManager.init();
+  MapManager.init();
 
   // Add loading class for better UX
   document.body.classList.add('loaded');
@@ -343,3 +344,33 @@ function updateCurrentYear() {
     yearElement.textContent = new Date().getFullYear();
   }
 }
+
+// Добавьте этот код в main.js
+const MapManager = {
+  init() {
+    this.setupMapLoading();
+    this.setupMapInteraction();
+  },
+
+  setupMapLoading() {
+    const mapIframes = document.querySelectorAll('.map-container iframe');
+
+    mapIframes.forEach((iframe) => {
+      iframe.addEventListener('load', () => {
+        iframe.classList.add('loaded');
+      });
+    });
+  },
+
+  setupMapInteraction() {
+    // Добавляем analytics для кликов по кнопке маршрута
+    const routeButtons = document.querySelectorAll('.map-route-btn');
+
+    routeButtons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        // Можно добавить analytics событие здесь
+        console.log('User clicked route button');
+      });
+    });
+  },
+};
