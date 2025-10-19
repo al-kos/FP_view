@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Спортивный клуб FIGHT PROPAGANDA</title>
-    <meta name="yandex-verification" content="178d85cf869d100f" />
     <meta
       name="description"
-      content="Профессиональные тренировки по боксу для начинающих и продолжающих. Для детей и взрослых. Первая тренировка бесплатно! Кировский район, Санкт-Петербург." />
+      content="Профессиональные тренировки по боксу для начинающих и продолжающих. Для детей и взрослых. Кировский район, Санкт-Петербург." />
 
     <!-- Favicon -->
     <link
@@ -26,11 +25,11 @@
     <meta property="og:title" content="Спортивный клуб FIGHT PROPAGANDA" />
     <meta
       property="og:description"
-      content="Профессиональные тренировки по боксу для начинающих и продолжающих. Для детей и взрослых. Первая тренировка бесплатно! Кировский район, Санкт-Петербург." />
+      content="Профессиональные тренировки по боксу для начинающих и продолжающих. Для детей и взрослых. Кировский район, Санкт-Петербург." />
 
-    <meta property="og:image" content="public/logo.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content="/public/logo.jpg" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="600" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="Логотип FIGHT PROPAGANDA" />
     <!-- <meta property="og:url" content="https://fightpropaganda.ru" /> -->
@@ -38,8 +37,11 @@
 
     <!-- Для Telegram и современных мессенджеров -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FIGHT PROPAGANDA - Боксерский клуб" />
-    <meta name="twitter:description" content="Бокс в Санкт-Петербурге" />
+    <meta name="twitter:title" content="Спортивный клуб FIGHT PROPAGANDA" />
+    <meta property="twitter:image" content="/public/logo.jpg" />
+    <meta
+      name="twitter:description"
+      content="Профессиональные тренировки по боксу для начинающих и продолжающих. Для детей и взрослых. Кировский район, Санкт-Петербург." />
   </head>
   <body>
     <!-- Header -->
@@ -276,7 +278,10 @@
           <button class="schedule-filter" data-filter="muaythai">
             Тайский бокс
           </button>
-          <button class="schedule-filter" data-filter="other">Другие</button>
+          <button class="schedule-filter" data-filter="yoga">Йога</button>
+          <button class="schedule-filter" data-filter="crossfit">
+            Кроссфит
+          </button>
         </div>
 
         <div class="schedule-cards">
@@ -441,7 +446,7 @@
           <div class="schedule-day-group" data-day="saturday">
             <h3 class="schedule-day-title">📅 Суббота</h3>
             <div class="schedule-day-cards">
-              <div class="schedule-card" data-type="other">
+              <div class="schedule-card" data-type="yoga">
                 <div class="schedule-card__time">10:00-12:00</div>
                 <div class="schedule-card__title">Йога</div>
                 <div class="schedule-card__level">Все уровни</div>
@@ -451,7 +456,7 @@
                 <div class="schedule-card__title">Бокс</div>
                 <div class="schedule-card__level">Все уровни</div>
               </div>
-              <div class="schedule-card" data-type="other">
+              <div class="schedule-card" data-type="crossfit">
                 <div class="schedule-card__time">17:00-18:30</div>
                 <div class="schedule-card__title">Кроссфит</div>
                 <div class="schedule-card__level">Все уровни</div>
@@ -473,35 +478,44 @@
         </div>
 
         <div class="pricing-grid">
+          <!-- Бокс для детей -->
           <div class="pricing-card fade-in-up">
-            <div class="pricing-card__icon">👤</div>
-            <h3 class="pricing-card__title">Разовое занятие</h3>
+            <h3 class="pricing-card__title">
+              <span class="text-red">Бокс</span> Дети
+            </h3>
             <div class="pricing-card__prices">
               <div class="pricing-card__price">
-                <span class="pricing-card__price-label">Дети</span>
+                <span class="pricing-card__price-label">Разовое</span>
                 <span class="pricing-card__price-amount">500₽</span>
               </div>
               <div class="pricing-card__price">
-                <span class="pricing-card__price-label">Взрослые</span>
-                <span class="pricing-card__price-amount">1000₽</span>
-              </div>
-            </div>
-            <a href="#contact" class="btn btn--primary pricing-card__btn"
-              >Выбрать</a
-            >
-          </div>
-
-          <div class="pricing-card fade-in-up">
-            <div class="pricing-card__icon">🏆</div>
-            <h3 class="pricing-card__title">Абонемент на 8 тренировок</h3>
-            <div class="pricing-card__prices">
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">Дети</span>
+                <span class="pricing-card__price-label">8 тренировок</span>
                 <span class="pricing-card__price-amount">4000₽</span>
               </div>
+            </div>
+            <a href="#contact" class="btn btn--primary pricing-card__btn"
+              >Выбрать</a
+            >
+          </div>
+
+          <!-- Бокс для взрослых -->
+          <div class="pricing-card pricing-card--popular fade-in-up">
+            <div class="pricing-card__badge">Популярное</div>
+            <h3 class="pricing-card__title">
+              <span class="text-red">Бокс</span> Взрослые
+            </h3>
+            <div class="pricing-card__prices">
               <div class="pricing-card__price">
-                <span class="pricing-card__price-label">Взрослые</span>
+                <span class="pricing-card__price-label">Разовое</span>
+                <span class="pricing-card__price-amount">1000₽</span>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-label">8 тренировок</span>
                 <span class="pricing-card__price-amount">5500₽</span>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-label">12 тренировок</span>
+                <span class="pricing-card__price-amount">6000₽</span>
               </div>
             </div>
             <a href="#contact" class="btn btn--primary pricing-card__btn"
@@ -509,14 +523,21 @@
             >
           </div>
 
-          <div class="pricing-card pricing-card--popular fade-in-up">
-            <div class="pricing-card__badge">Популярный</div>
-            <div class="pricing-card__icon">🥇</div>
-            <h3 class="pricing-card__title">Абонемент на 12 тренировок</h3>
+          <!-- Йога -->
+          <div class="pricing-card fade-in-up">
+            <h3 class="pricing-card__title">Йога</h3>
             <div class="pricing-card__prices">
               <div class="pricing-card__price">
-                <span class="pricing-card__price-label">Взрослые</span>
-                <span class="pricing-card__price-amount">6000₽</span>
+                <span class="pricing-card__price-label">Разовое</span>
+                <span class="pricing-card__price-amount">2200₽</span>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-label">2 тренировки</span>
+                <span class="pricing-card__price-amount">3400₽</span>
+              </div>
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-label">4 тренировки</span>
+                <span class="pricing-card__price-amount">5500₽</span>
               </div>
             </div>
             <a href="#contact" class="btn btn--primary pricing-card__btn"
@@ -545,7 +566,8 @@
                 <div class="contact-highlight">
                   <div class="contact-highlight__icon">🥊</div>
                   <div class="contact-highlight__text">
-                    <strong>Первая тренировка бесплатно!</strong>
+                    <strong>Первая тренировка со скидкой 50%</strong>
+                    <strong>При покупке абонемента - бесплатно!</strong>
                   </div>
                 </div>
 
