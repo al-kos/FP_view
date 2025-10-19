@@ -316,36 +316,7 @@ const ScheduleUtils = {
   },
 };
 
-// ===== INITIALIZATION =====
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize modules
-  MobileMenu.init();
-  ScrollAnimations.init();
-  ScheduleManager.init();
-  MapManager.init();
-
-  // Add loading class for better UX
-  document.body.classList.add('loaded');
-
-  // Create empty state for schedule if needed
-  ScheduleManager.createEmptyState();
-
-  // Update current year in footer
-  updateCurrentYear();
-});
-
-// ===== GLOBAL EXPORTS =====
-window.scheduleUtils = ScheduleUtils;
-
-// ===== CURRENT YEAR UPDATE =====
-function updateCurrentYear() {
-  const yearElement = document.getElementById('currentYear');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-}
-
-// Добавьте этот код в main.js
+// ===== MAP MANAGER MODULE =====
 const MapManager = {
   init() {
     this.setupMapLoading();
@@ -374,3 +345,32 @@ const MapManager = {
     });
   },
 };
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize modules
+  MobileMenu.init();
+  ScrollAnimations.init();
+  ScheduleManager.init();
+  MapManager.init();
+
+  // Add loading class for better UX
+  document.body.classList.add('loaded');
+
+  // Create empty state for schedule if needed
+  ScheduleManager.createEmptyState();
+
+  // Update current year in footer
+  updateCurrentYear();
+});
+
+// ===== GLOBAL EXPORTS =====
+window.scheduleUtils = ScheduleUtils;
+
+// ===== CURRENT YEAR UPDATE =====
+function updateCurrentYear() {
+  const yearElement = document.getElementById('currentYear');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+}
