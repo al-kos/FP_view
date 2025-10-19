@@ -32,7 +32,6 @@
     <meta property="og:image:height" content="600" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="Логотип FIGHT PROPAGANDA" />
-    <!-- <meta property="og:url" content="https://fightpropaganda.ru" /> -->
     <meta property="og:type" content="website" />
 
     <!-- Для Telegram и современных мессенджеров -->
@@ -45,21 +44,24 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
       <div class="container">
         <div class="header__content">
           <div class="logo">
             <a href="#home">
-              <span class="logo__red">FIGHT</span>
-              <span class="logo__white">PROPAGANDA</span>
+              <img
+                src="public/logo.avif"
+                alt="FIGHT PROPAGANDA"
+                width="60"
+                height="60" />
             </a>
           </div>
 
-          <nav class="nav nav--desktop">
+          <nav class="nav nav--desktop" aria-label="Основная навигация">
             <ul class="nav__list">
-              <!-- <li class="nav__item">
+              <li class="nav__item">
                 <a href="#trainers" class="nav__link">Тренеры</a>
-              </li> -->
+              </li>
               <li class="nav__item">
                 <a href="#schedule" class="nav__link">Расписание</a>
               </li>
@@ -75,7 +77,8 @@
           <button
             class="mobile-menu-btn"
             id="mobileMenuBtn"
-            aria-label="Открыть меню">
+            aria-label="Открыть меню"
+            aria-expanded="false">
             <span class="mobile-menu-btn__icon"></span>
             <span class="mobile-menu-btn__icon"></span>
             <span class="mobile-menu-btn__icon"></span>
@@ -98,11 +101,11 @@
               <span class="mobile-menu__close-icon">×</span>
             </button>
           </div>
-          <nav class="nav nav--mobile">
+          <nav class="nav nav--mobile" aria-label="Мобильная навигация">
             <ul class="nav__list nav__list--mobile">
-              <!-- <li class="nav__item">
+              <li class="nav__item">
                 <a href="#trainers" class="nav__link">Тренеры</a>
-              </li> -->
+              </li>
               <li class="nav__item">
                 <a href="#schedule" class="nav__link">Расписание</a>
               </li>
@@ -118,550 +121,564 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero__background">
-        <picture>
-          <!-- AVIF формат - современный и эффективный -->
-          <source srcset="public/hero_banner.avif" type="image/avif" />
-          <img
-            src="public/hero_banner.avif"
-            alt="Боксерский зал Fight Propaganda"
-            loading="eager" />
-        </picture>
-        <div class="hero__overlay"></div>
-      </div>
-
-      <div class="hero__content">
-        <div class="hero__text">
-          <h1 class="hero__title">
-            <span class="hero__subtitle">спортивный клуб</span>
-            <span class="hero__main-title">
-              <span class="text-red">Fight</span>
-              <span class="text-white">Propaganda</span>
-            </span>
-          </h1>
-
-          <!-- <p class="hero__description">
-            Специализируемся на боксе и активном образе жизни в Кировском
-            районе Санкт-Петербурга
-          </p> -->
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero__background">
+          <picture>
+            <source srcset="public/hero_banner.avif" type="image/avif" />
+            <img
+              src="public/hero_banner.avif"
+              alt="Боксерский зал Fight Propaganda"
+              loading="eager" />
+          </picture>
+          <div class="hero__overlay"></div>
         </div>
 
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary hero__btn"
-            >Записаться на тренировку</a
-          >
-          <a href="#schedule" class="btn btn--outline hero__btn">Расписание</a>
-        </div>
-      </div>
-    </section>
+        <div class="hero__content">
+          <div class="hero__text">
+            <h1 class="hero__title">
+              <span class="hero__subtitle">спортивный клуб</span>
+              <span class="hero__main-title">
+                <span class="text-red">Fight</span>
+                <span class="text-white">Propaganda</span>
+              </span>
+            </h1>
+          </div>
 
-    <!-- About Section -->
-    <section id="about" class="section section--dark">
-      <div class="container">
-        <div class="section__header fade-in-up">
-          <h2 class="section__title">
-            <span class="text-red">Тренируйся</span>
-            <span class="text-white">как</span>
-            <span class="text-silver">чемпион</span>
-          </h2>
-          <p class="section__subtitle">
-            Мы развиваем дисциплину, силу духа и настоящие боевые навыки. Наш
-            клуб — это место, где каждый может раскрыть свой потенциал,
-            независимо от уровня подготовки
-          </p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary hero__btn"
+              >Записаться на тренировку</a
+            >
+            <a href="#schedule" class="btn btn--outline hero__btn"
+              >Расписание</a
+            >
+          </div>
         </div>
+      </section>
 
-        <div class="features-grid">
-          <div class="feature-card fade-in-up">
-            <div class="feature-card__icon">🥊</div>
-            <h3 class="feature-card__title">Профессиональные тренеры</h3>
-            <p class="feature-card__description">
-              Опытные специалисты с профессиональным опытом в боевых искусствах
+      <!-- About & Trainers Section -->
+      <section id="trainers" class="section section--dark">
+        <div class="container">
+          <div class="section__header fade-in-up">
+            <h2 class="section__title">
+              <span class="text-red">Тренируйся</span>
+              <span class="text-white">как</span>
+              <span class="text-silver">чемпион</span>
+            </h2>
+            <p class="section__subtitle">
+              Наши тренеры развивают дисциплину, силу духа и настоящие боевые
+              навыки. Наш клуб — это место, где каждый может раскрыть свой
+              потенциал, независимо от уровня подготовки
             </p>
           </div>
 
-          <div class="feature-card fade-in-up">
-            <div class="feature-card__icon">🏋️</div>
-            <h3 class="feature-card__title">Современное оборудование</h3>
-            <p class="feature-card__description">
-              Новейшее тренировочное оборудование для максимальных результатов
-            </p>
-          </div>
-
-          <div class="feature-card fade-in-up">
-            <div class="feature-card__icon">🎯</div>
-            <h3 class="feature-card__title">Индивидуальный подход</h3>
-            <p class="feature-card__description">
-              Проверенные временем программы тренировок под ваши цели и уровень
-              подготовки
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trainers Section
-    <section id="trainers" class="section">
-      <div class="container">
-        <div class="section__header fade-in-up">
-          <h2 class="section__title">
-            <span class="text-white">Наши</span>
-            <span class="text-red">Тренеры</span>
-          </h2>
-          <p class="section__subtitle">
-            Обучайтесь у чемпионов, доказавших свой профессионализм на ринге
-          </p>
-        </div>
-
-        <div class="trainers-grid">
-          <div class="trainer-card trainer-card--with-quote fade-in-up">
-            <div class="trainer-card__avatar">
-              <img
-                src="./public/Markuis.jpeg"
-                alt="Маркус Родригес"
-                class="trainer-card__image" />
-            </div>
-
-            <div class="trainer-card__content">
-              <div class="trainer-card__quote">
-                <svg
-                  class="trainer-card__quote-icon"
-                  viewBox="0 0 24 24"
-                  fill="#ff0000">
-                  <path
-                    d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z" />
-                </svg>
-                <blockquote class="trainer-card__quote-text">
-                  "Я посвятил жизнь mastering the sweet science of boxing.
-                  Каждый удар рассказывает историю, каждый раунд строит
-                  характер. На этом ринге мы создаем не просто бойцов - мы
-                  создаем чемпионов на всю жизнь."
+          <div class="trainers-grid">
+            <!-- Смирнов Виктор -->
+            <article class="trainer-card fade-in-up">
+              <div class="trainer-card__content">
+                <blockquote class="trainer-card__quote">
+                  <p class="trainer-card__quote-text">
+                    "Основал этот клуб, чтобы передать опыт новому поколению
+                    бойцов. Бокс и кикбоксинг - это не просто спорт, это школа
+                    жизни, где мы учимся преодолевать себя каждый день."
+                  </p>
                 </blockquote>
-              </div>
 
-              <div class="trainer-card__info">
-                <h3 class="trainer-card__name">
-                  Маркус 'Стальной Кулак' Родригес
-                </h3>
-                <p class="trainer-card__specialty">
-                  Тренер по боксу и кикбоксингу
-                </p>
-                <p class="trainer-card__experience">
-                  15 лет профессионального опыта
-                </p>
-                <p class="trainer-card__achievements">
-                  Экс-чемпион WBC • Рекорд 25-2 • Чемпион мира
-                </p>
+                <div class="trainer-card__info">
+                  <h3 class="trainer-card__name">Смирнов Виктор</h3>
+                  <p class="trainer-card__specialty">
+                    Основатель клуба, тренер по боксу и кикбоксингу
+                  </p>
+                  <ul class="trainer-card__achievements">
+                    <li>Призер Кубка Балтийских стран</li>
+                    <li>Призер России по кикбоксингу</li>
+                    <li>Призер Санкт-Петербурга по кикбоксингу и савату</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- Дмитрий Кириллов -->
+            <article class="trainer-card fade-in-up">
+              <div class="trainer-card__content">
+                <blockquote class="trainer-card__quote">
+                  <p class="trainer-card__quote-text">
+                    "От новичка до чемпиона мира - я прошел этот путь и знаю,
+                    как помочь вам достичь вершин. Профессиональный бокс требует
+                    дисциплины, и я научу вас побеждать на ринге и в жизни."
+                  </p>
+                </blockquote>
+
+                <div class="trainer-card__info">
+                  <h3 class="trainer-card__name">Дмитрий Кириллов</h3>
+                  <p class="trainer-card__specialty">Тренер по боксу</p>
+                  <ul class="trainer-card__achievements">
+                    <li>Чемпион Мира по версии WBC среди юниоров</li>
+                    <li>Чемпион Мира по версии IBF среди профессионалов</li>
+                    <li>Чемпион России, Заслуженный Мастер Спорта по боксу</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- Тисленко Вячеслав -->
+            <article class="trainer-card fade-in-up">
+              <div class="trainer-card__content">
+                <blockquote class="trainer-card__quote">
+                  <p class="trainer-card__quote-text">
+                    "Муай-тай - искусство восьми конечностей, где каждый удар
+                    имеет значение. Обучаю технике, которая сделала меня
+                    9-кратным чемпионом мира. Приходите - и вы почувствуете силу
+                    настоящего тайского бокса."
+                  </p>
+                </blockquote>
+
+                <div class="trainer-card__info">
+                  <h3 class="trainer-card__name">Тисленко Вячеслав</h3>
+                  <p class="trainer-card__specialty">Тренер по Муай-Тай</p>
+                  <ul class="trainer-card__achievements">
+                    <li>9-кратный Чемпион Мира</li>
+                    <li>8-кратный Чемпион России</li>
+                    <li>Сильнейший кикбоксер мира (1999)</li>
+                    <li>Лучший кикбоксер России (2000)</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- Тенгиз Худжадзе -->
+            <article class="trainer-card fade-in-up">
+              <div class="trainer-card__content">
+                <blockquote class="trainer-card__quote">
+                  <p class="trainer-card__quote-text">
+                    "Муай-тай учит не только сражаться, но и думать. Каждая
+                    тренировка - это шаг к самосовершенствованию. Помогу освоить
+                    технику, которая принесла мне победы на чемпионатах России и
+                    Санкт-Петербурга."
+                  </p>
+                </blockquote>
+
+                <div class="trainer-card__info">
+                  <h3 class="trainer-card__name">Тенгиз Худжадзе</h3>
+                  <p class="trainer-card__specialty">Тренер по Муай-Тай</p>
+                  <ul class="trainer-card__achievements">
+                    <li>Многократный победитель чемпионатов России</li>
+                    <li>Чемпион Санкт-Петербурга</li>
+                    <li>Специалист по традиционному Муай-Тай</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Schedule Section -->
+      <section id="schedule" class="section section--dark">
+        <div class="container">
+          <div class="section__header fade-in-up">
+            <h2 class="section__title">
+              <span class="text-red">Расписание</span>
+              <span class="text-white">Тренировок</span>
+            </h2>
+          </div>
+
+          <!-- Фильтры -->
+          <div class="schedule-filters fade-in-up" role="tablist">
+            <button class="schedule-filter active" data-filter="all" role="tab">
+              Все
+            </button>
+            <button class="schedule-filter" data-filter="boxing" role="tab">
+              Бокс
+            </button>
+            <button class="schedule-filter" data-filter="muaythai" role="tab">
+              Тайский бокс
+            </button>
+            <button class="schedule-filter" data-filter="yoga" role="tab">
+              Йога
+            </button>
+            <button class="schedule-filter" data-filter="crossfit" role="tab">
+              Кроссфит
+            </button>
+          </div>
+
+          <div class="schedule-cards">
+            <!-- Понедельник -->
+            <div class="schedule-day-group" data-day="monday">
+              <h3 class="schedule-day-title">📅 Понедельник</h3>
+              <div class="schedule-day-cards">
+                <div class="schedule-card" data-type="boxing">
+                  <div class="schedule-card__time">8:45-10:15</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+                <div
+                  class="schedule-card"
+                  data-type="boxing"
+                  data-level="beginner">
+                  <div class="schedule-card__time">18:30-20:00</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Начальный уровень</div>
+                </div>
+                <div class="schedule-card" data-type="boxing">
+                  <div class="schedule-card__time">20:00-21:30</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Вторник -->
+            <div class="schedule-day-group" data-day="tuesday">
+              <h3 class="schedule-day-title">📅 Вторник</h3>
+              <div class="schedule-day-cards">
+                <div
+                  class="schedule-card"
+                  data-type="boxing"
+                  data-level="beginner">
+                  <div class="schedule-card__time">8:30-10:00</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Начальный уровень</div>
+                </div>
+                <div class="schedule-card" data-type="boxing" data-level="kids">
+                  <div class="schedule-card__time">17:00-18:30</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Детская группа</div>
+                </div>
+                <div
+                  class="schedule-card"
+                  data-type="boxing"
+                  data-level="beginner">
+                  <div class="schedule-card__time">18:30-20:00</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Начальный уровень</div>
+                </div>
+                <div
+                  class="schedule-card"
+                  data-type="muaythai"
+                  data-level="women">
+                  <div class="schedule-card__time">19:30-21:00</div>
+                  <div class="schedule-card__title">Тайский бокс</div>
+                  <div class="schedule-card__level">Женская группа</div>
+                </div>
+                <div class="schedule-card" data-type="muaythai">
+                  <div class="schedule-card__time">21:00-22:30</div>
+                  <div class="schedule-card__title">Тайский бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Среда -->
+            <div class="schedule-day-group" data-day="wednesday">
+              <h3 class="schedule-day-title">📅 Среда</h3>
+              <div class="schedule-day-cards">
+                <div class="schedule-card" data-type="boxing">
+                  <div class="schedule-card__time">8:45-10:15</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+                <div
+                  class="schedule-card"
+                  data-type="boxing"
+                  data-level="beginner">
+                  <div class="schedule-card__time">18:30-20:00</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Начальный уровень</div>
+                </div>
+                <div class="schedule-card" data-type="boxing">
+                  <div class="schedule-card__time">20:00-21:30</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Четверг -->
+            <div class="schedule-day-group" data-day="thursday">
+              <h3 class="schedule-day-title">📅 Четверг</h3>
+              <div class="schedule-day-cards">
+                <div
+                  class="schedule-card"
+                  data-type="boxing"
+                  data-level="beginner">
+                  <div class="schedule-card__time">8:30-10:00</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Начальный уровень</div>
+                </div>
+                <div class="schedule-card" data-type="boxing" data-level="kids">
+                  <div class="schedule-card__time">17:00-18:30</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Детская группа</div>
+                </div>
+                <div
+                  class="schedule-card"
+                  data-type="boxing"
+                  data-level="beginner">
+                  <div class="schedule-card__time">18:30-20:00</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Начальный уровень</div>
+                </div>
+                <div
+                  class="schedule-card"
+                  data-type="muaythai"
+                  data-level="women">
+                  <div class="schedule-card__time">19:30-21:00</div>
+                  <div class="schedule-card__title">Тайский бокс</div>
+                  <div class="schedule-card__level">Женская группа</div>
+                </div>
+                <div class="schedule-card" data-type="muaythai">
+                  <div class="schedule-card__time">21:00-22:30</div>
+                  <div class="schedule-card__title">Тайский бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Пятница -->
+            <div class="schedule-day-group" data-day="friday">
+              <h3 class="schedule-day-title">📅 Пятница</h3>
+              <div class="schedule-day-cards">
+                <div class="schedule-card" data-type="boxing">
+                  <div class="schedule-card__time">8:45-10:15</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+                <div
+                  class="schedule-card"
+                  data-type="boxing"
+                  data-level="beginner">
+                  <div class="schedule-card__time">18:30-20:00</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Начальный уровень</div>
+                </div>
+                <div class="schedule-card" data-type="boxing">
+                  <div class="schedule-card__time">20:00-21:30</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Суббота -->
+            <div class="schedule-day-group" data-day="saturday">
+              <h3 class="schedule-day-title">📅 Суббота</h3>
+              <div class="schedule-day-cards">
+                <div class="schedule-card" data-type="yoga">
+                  <div class="schedule-card__time">10:00-12:00</div>
+                  <div class="schedule-card__title">Йога</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+                <div class="schedule-card" data-type="boxing">
+                  <div class="schedule-card__time">13:30-15:00</div>
+                  <div class="schedule-card__title">Бокс</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
+                <div class="schedule-card" data-type="crossfit">
+                  <div class="schedule-card__time">17:00-18:30</div>
+                  <div class="schedule-card__title">Кроссфит</div>
+                  <div class="schedule-card__level">Все уровни</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section> -->
+      </section>
 
-    <!-- Schedule Section -->
-    <section id="schedule" class="section section--dark">
-      <div class="container">
-        <div class="section__header fade-in-up">
-          <h2 class="section__title">
-            <span class="text-red">Расписание</span>
-            <span class="text-white">Тренировок</span>
-          </h2>
-        </div>
-
-        <!-- Фильтры для мобильной версии -->
-        <div class="schedule-filters fade-in-up">
-          <button class="schedule-filter active" data-filter="all">Все</button>
-          <button class="schedule-filter" data-filter="boxing">Бокс</button>
-          <button class="schedule-filter" data-filter="muaythai">
-            Тайский бокс
-          </button>
-          <button class="schedule-filter" data-filter="yoga">Йога</button>
-          <button class="schedule-filter" data-filter="crossfit">
-            Кроссфит
-          </button>
-        </div>
-
-        <div class="schedule-cards">
-          <!-- Понедельник fade-in-up -->
-          <div class="schedule-day-group" data-day="monday">
-            <h3 class="schedule-day-title">📅 Понедельник</h3>
-            <div class="schedule-day-cards">
-              <div class="schedule-card" data-type="boxing">
-                <div class="schedule-card__time">8:45-10:15</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-              <div
-                class="schedule-card"
-                data-type="boxing"
-                data-level="beginner">
-                <div class="schedule-card__time">18:30-20:00</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Начальный уровень</div>
-              </div>
-              <div class="schedule-card" data-type="boxing">
-                <div class="schedule-card__time">20:00-21:30</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-            </div>
+      <!-- Pricing Section -->
+      <section id="pricing" class="section">
+        <div class="container">
+          <div class="section__header fade-in-up">
+            <h2 class="section__title">
+              <span class="text-white">Стоимость</span>
+              <span class="text-red">Тренировок</span>
+            </h2>
           </div>
 
-          <!-- Вторник -->
-          <div class="schedule-day-group" data-day="tuesday">
-            <h3 class="schedule-day-title">📅 Вторник</h3>
-            <div class="schedule-day-cards">
-              <div
-                class="schedule-card"
-                data-type="boxing"
-                data-level="beginner">
-                <div class="schedule-card__time">8:30-10:00</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Начальный уровень</div>
+          <div class="pricing-grid">
+            <!-- Бокс для детей -->
+            <article class="pricing-card fade-in-up">
+              <h3 class="pricing-card__title">
+                <span class="text-red">Бокс</span> Дети
+              </h3>
+              <div class="pricing-card__prices">
+                <div class="pricing-card__price">
+                  <span class="pricing-card__price-label">Разовое</span>
+                  <span class="pricing-card__price-amount">500₽</span>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__price-label">8 тренировок</span>
+                  <span class="pricing-card__price-amount">4000₽</span>
+                </div>
               </div>
-              <div class="schedule-card" data-type="boxing" data-level="kids">
-                <div class="schedule-card__time">17:00-18:30</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Детская группа</div>
-              </div>
-              <div
-                class="schedule-card"
-                data-type="boxing"
-                data-level="beginner">
-                <div class="schedule-card__time">18:30-20:00</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Начальный уровень</div>
-              </div>
-              <div
-                class="schedule-card"
-                data-type="muaythai"
-                data-level="women">
-                <div class="schedule-card__time">19:30-21:00</div>
-                <div class="schedule-card__title">Тайский бокс</div>
-                <div class="schedule-card__level">Женская группа</div>
-              </div>
-              <div class="schedule-card" data-type="muaythai">
-                <div class="schedule-card__time">21:00-22:30</div>
-                <div class="schedule-card__title">Тайский бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-            </div>
-          </div>
+              <a href="#contact" class="btn btn--primary pricing-card__btn"
+                >Выбрать</a
+              >
+            </article>
 
-          <!-- Среда -->
-          <div class="schedule-day-group" data-day="wednesday">
-            <h3 class="schedule-day-title">📅 Среда</h3>
-            <div class="schedule-day-cards">
-              <div class="schedule-card" data-type="boxing">
-                <div class="schedule-card__time">8:45-10:15</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
+            <!-- Бокс для взрослых -->
+            <article class="pricing-card pricing-card--popular fade-in-up">
+              <div class="pricing-card__badge">Популярное</div>
+              <h3 class="pricing-card__title">
+                <span class="text-red">Бокс</span> Взрослые
+              </h3>
+              <div class="pricing-card__prices">
+                <div class="pricing-card__price">
+                  <span class="pricing-card__price-label">Разовое</span>
+                  <span class="pricing-card__price-amount">1000₽</span>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__price-label">8 тренировок</span>
+                  <span class="pricing-card__price-amount">5500₽</span>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__price-label">12 тренировок</span>
+                  <span class="pricing-card__price-amount">6000₽</span>
+                </div>
               </div>
-              <div
-                class="schedule-card"
-                data-type="boxing"
-                data-level="beginner">
-                <div class="schedule-card__time">18:30-20:00</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Начальный уровень</div>
-              </div>
-              <div class="schedule-card" data-type="boxing">
-                <div class="schedule-card__time">20:00-21:30</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-            </div>
-          </div>
+              <a href="#contact" class="btn btn--primary pricing-card__btn"
+                >Выбрать</a
+              >
+            </article>
 
-          <!-- Четверг -->
-          <div class="schedule-day-group" data-day="thursday">
-            <h3 class="schedule-day-title">📅 Четверг</h3>
-            <div class="schedule-day-cards">
-              <div
-                class="schedule-card"
-                data-type="boxing"
-                data-level="beginner">
-                <div class="schedule-card__time">8:30-10:00</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Начальный уровень</div>
+            <!-- Йога -->
+            <article class="pricing-card fade-in-up">
+              <h3 class="pricing-card__title">Йога</h3>
+              <div class="pricing-card__prices">
+                <div class="pricing-card__price">
+                  <span class="pricing-card__price-label">Разовое</span>
+                  <span class="pricing-card__price-amount">2200₽</span>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__price-label">2 тренировки</span>
+                  <span class="pricing-card__price-amount">3400₽</span>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__price-label">4 тренировки</span>
+                  <span class="pricing-card__price-amount">5500₽</span>
+                </div>
               </div>
-              <div class="schedule-card" data-type="boxing" data-level="kids">
-                <div class="schedule-card__time">17:00-18:30</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Детская группа</div>
-              </div>
-              <div
-                class="schedule-card"
-                data-type="boxing"
-                data-level="beginner">
-                <div class="schedule-card__time">18:30-20:00</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Начальный уровень</div>
-              </div>
-              <div
-                class="schedule-card"
-                data-type="muaythai"
-                data-level="women">
-                <div class="schedule-card__time">19:30-21:00</div>
-                <div class="schedule-card__title">Тайский бокс</div>
-                <div class="schedule-card__level">Женская группа</div>
-              </div>
-              <div class="schedule-card" data-type="muaythai">
-                <div class="schedule-card__time">21:00-22:30</div>
-                <div class="schedule-card__title">Тайский бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Пятница -->
-          <div class="schedule-day-group" data-day="friday">
-            <h3 class="schedule-day-title">📅 Пятница</h3>
-            <div class="schedule-day-cards">
-              <div class="schedule-card" data-type="boxing">
-                <div class="schedule-card__time">8:45-10:15</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-              <div
-                class="schedule-card"
-                data-type="boxing"
-                data-level="beginner">
-                <div class="schedule-card__time">18:30-20:00</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Начальный уровень</div>
-              </div>
-              <div class="schedule-card" data-type="boxing">
-                <div class="schedule-card__time">20:00-21:30</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Суббота -->
-          <div class="schedule-day-group" data-day="saturday">
-            <h3 class="schedule-day-title">📅 Суббота</h3>
-            <div class="schedule-day-cards">
-              <div class="schedule-card" data-type="yoga">
-                <div class="schedule-card__time">10:00-12:00</div>
-                <div class="schedule-card__title">Йога</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-              <div class="schedule-card" data-type="boxing">
-                <div class="schedule-card__time">13:30-15:00</div>
-                <div class="schedule-card__title">Бокс</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-              <div class="schedule-card" data-type="crossfit">
-                <div class="schedule-card__time">17:00-18:30</div>
-                <div class="schedule-card__title">Кроссфит</div>
-                <div class="schedule-card__level">Все уровни</div>
-              </div>
-            </div>
+              <a href="#contact" class="btn btn--primary pricing-card__btn"
+                >Выбрать</a
+              >
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="section">
-      <div class="container">
-        <div class="section__header fade-in-up">
-          <h2 class="section__title">
-            <span class="text-white">Стоимость</span>
-            <span class="text-red">Тренировок</span>
-          </h2>
-        </div>
-
-        <div class="pricing-grid">
-          <!-- Бокс для детей -->
-          <div class="pricing-card fade-in-up">
-            <h3 class="pricing-card__title">
-              <span class="text-red">Бокс</span> Дети
-            </h3>
-            <div class="pricing-card__prices">
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">Разовое</span>
-                <span class="pricing-card__price-amount">500₽</span>
-              </div>
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">8 тренировок</span>
-                <span class="pricing-card__price-amount">4000₽</span>
-              </div>
-            </div>
-            <a href="#contact" class="btn btn--primary pricing-card__btn"
-              >Выбрать</a
-            >
+      <!-- Contact Section -->
+      <section id="contact" class="section section--dark contact-section">
+        <div class="container">
+          <div class="section__header fade-in-up">
+            <h2 class="section__title">
+              <span class="text-white">Контакты</span>
+            </h2>
           </div>
 
-          <!-- Бокс для взрослых -->
-          <div class="pricing-card pricing-card--popular fade-in-up">
-            <div class="pricing-card__badge">Популярное</div>
-            <h3 class="pricing-card__title">
-              <span class="text-red">Бокс</span> Взрослые
-            </h3>
-            <div class="pricing-card__prices">
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">Разовое</span>
-                <span class="pricing-card__price-amount">1000₽</span>
-              </div>
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">8 тренировок</span>
-                <span class="pricing-card__price-amount">5500₽</span>
-              </div>
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">12 тренировок</span>
-                <span class="pricing-card__price-amount">6000₽</span>
-              </div>
-            </div>
-            <a href="#contact" class="btn btn--primary pricing-card__btn"
-              >Выбрать</a
-            >
-          </div>
+          <div class="contact-layout">
+            <!-- Левая колонка - контактная информация -->
+            <div class="contact-info-column fade-in-up">
+              <div class="contact-card">
+                <div class="contact-top-section">
+                  <div class="contact-highlight">
+                    <div class="contact-highlight__icon">🥊</div>
+                    <div class="contact-highlight__text">
+                      <strong>Первая тренировка со скидкой 50%</strong>
+                      <strong>При покупке абонемента - бесплатно!</strong>
+                    </div>
+                  </div>
 
-          <!-- Йога -->
-          <div class="pricing-card fade-in-up">
-            <h3 class="pricing-card__title">Йога</h3>
-            <div class="pricing-card__prices">
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">Разовое</span>
-                <span class="pricing-card__price-amount">2200₽</span>
-              </div>
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">2 тренировки</span>
-                <span class="pricing-card__price-amount">3400₽</span>
-              </div>
-              <div class="pricing-card__price">
-                <span class="pricing-card__price-label">4 тренировки</span>
-                <span class="pricing-card__price-amount">5500₽</span>
-              </div>
-            </div>
-            <a href="#contact" class="btn btn--primary pricing-card__btn"
-              >Выбрать</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
+                  <!-- Контактные кнопки -->
+                  <div class="contact-actions">
+                    <a
+                      href="tel:+79219631363"
+                      class="contact-action-btn contact-action-btn--primary">
+                      <span class="contact-action-btn__icon">📞</span>
+                      <span class="contact-action-btn__content">
+                        <span class="contact-action-btn__title">Позвонить</span>
+                        <span class="contact-action-btn__subtitle"
+                          >+7 (921) 963-13-63</span
+                        >
+                      </span>
+                    </a>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section section--dark contact-section">
-      <div class="container">
-        <div class="section__header fade-in-up">
-          <h2 class="section__title">
-            <span class="text-white">Контакты</span>
-          </h2>
-        </div>
-
-        <div class="contact-layout">
-          <!-- Левая колонка - контактная информация -->
-          <div class="contact-info-column fade-in-up">
-            <div class="contact-card">
-              <!-- Новый контейнер для верхних блоков -->
-              <div class="contact-top-section">
-                <div class="contact-highlight">
-                  <div class="contact-highlight__icon">🥊</div>
-                  <div class="contact-highlight__text">
-                    <strong>Первая тренировка со скидкой 50%</strong>
-                    <strong>При покупке абонемента - бесплатно!</strong>
+                    <a
+                      href="https://vk.com/fightpropaganda"
+                      class="contact-action-btn contact-action-btn--secondary"
+                      target="_blank"
+                      rel="noopener">
+                      <span class="contact-action-btn__icon">✍️</span>
+                      <span class="contact-action-btn__content">
+                        <span class="contact-action-btn__title"
+                          >Написать в VK</span
+                        >
+                      </span>
+                    </a>
                   </div>
                 </div>
 
-                <!-- Контактные кнопки -->
-                <div class="contact-actions">
-                  <a
-                    href="tel:+79991234567"
-                    class="contact-action-btn contact-action-btn--primary">
-                    <span class="contact-action-btn__icon">📞</span>
-                    <span class="contact-action-btn__content">
-                      <span class="contact-action-btn__title">Позвонить</span>
-                      <span class="contact-action-btn__subtitle"
-                        >+7 (921) 963-13-63</span
-                      >
-                    </span>
-                  </a>
-
-                  <a
-                    href="https://vk.com/fightpropaganda"
-                    class="contact-action-btn contact-action-btn--secondary"
-                    target="_blank">
-                    <span class="contact-action-btn__icon">✍️</span>
-                    <span class="contact-action-btn__content">
-                      <span class="contact-action-btn__title"
-                        >Написать в VK</span
-                      >
-                    </span>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Детали контакта -->
-              <div class="contact-details">
-                <div class="contact-detail-item">
-                  <div class="contact-detail-item__icon">📍</div>
-                  <div class="contact-detail-item__content">
-                    <div class="contact-detail-item__title">Адрес</div>
-                    <div class="contact-detail-item__value">
-                      Санкт-Петербург, Кировский район<br />
-                      ул. Маршала Говорова, 35, корп. 4<br />
-                      Бизнес-Центр "Propaganda", 6 этаж
-                    </div>
-                    <div class="contact-detail-item__meta">
-                      🚇 м. Нарвская, м. Кировский завод
+                <!-- Детали контакта -->
+                <div class="contact-details">
+                  <div class="contact-detail-item">
+                    <div class="contact-detail-item__icon">📍</div>
+                    <div class="contact-detail-item__content">
+                      <div class="contact-detail-item__title">Адрес</div>
+                      <div class="contact-detail-item__value">
+                        Санкт-Петербург, Кировский район<br />
+                        ул. Маршала Говорова, 35, корп. 4<br />
+                        Бизнес-Центр "Propaganda", 6 этаж
+                      </div>
+                      <div class="contact-detail-item__meta">
+                        🚇 м. Нарвская, м. Кировский завод
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="contact-detail-item">
-                  <div class="contact-detail-item__icon">🕒</div>
-                  <div class="contact-detail-item__content">
-                    <div class="contact-detail-item__title">Часы работы</div>
-                    <div class="contact-detail-item__value">
-                      Пн-Пт: 7:00-23:00<br />
-                      Сб-Вс: 9:00-22:00
+                  <div class="contact-detail-item">
+                    <div class="contact-detail-item__icon">🕒</div>
+                    <div class="contact-detail-item__content">
+                      <div class="contact-detail-item__title">Часы работы</div>
+                      <div class="contact-detail-item__value">
+                        Пн-Пт: 7:00-23:00<br />
+                        Сб-Вс: 9:00-22:00
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Правая колонка - карта -->
-          <div class="contact-map-column fade-in-up">
-            <div class="map-card">
-              <a
-                href="https://yandex.ru/maps/-/CLFJbRLM"
-                class="map-route-btn"
-                target="_blank"
-                rel="noopener noreferrer">
-                📍 Построить маршрут
-              </a>
-              <div class="map-container">
-                <iframe
-                  src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=1146775398"
-                  width="560"
-                  height="400"
-                  frameborder="0"
-                  width="100%"
-                  height="100%"
-                  frameborder="0"
-                  loading="lazy"
-                  allowfullscreen
-                  title="Карта расположения клуба FIGHT PROPAGANDA">
-                </iframe>
+            <!-- Правая колонка - карта -->
+            <div class="contact-map-column fade-in-up">
+              <div class="map-card">
+                <a
+                  href="https://yandex.ru/maps/-/CLFJbRLM"
+                  class="map-route-btn"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  📍 Построить маршрут
+                </a>
+                <div class="map-container">
+                  <iframe
+                    src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=1146775398"
+                    width="100%"
+                    height="100%"
+                    frameborder="0"
+                    loading="lazy"
+                    allowfullscreen
+                    title="Карта расположения клуба FIGHT PROPAGANDA">
+                  </iframe>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="container">
         <p class="footer__copyright">
           © <span id="currentYear"></span>
