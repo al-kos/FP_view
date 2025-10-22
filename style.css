@@ -68,7 +68,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(10, 10, 10, 0.95);
+  background: rgba(10, 10, 10, 0.35);
   backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 15px 0;
@@ -79,26 +79,39 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Выравниваем по центру вертикали */
+  height: 100%; /* Занимаем всю высоту контейнера */
 }
 
 .logo a {
   text-decoration: none;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  display: flex;
+  align-items: center; /* Центрируем логотип внутри ссылки */
+  height: 100%;
 }
 
 .logo img {
-  height: 70px; /* фиксированная высота */
-  width: auto; /* ширина автоматически */
+  height: 70px; /* Фиксированная высота */
+  width: auto;
   transition: var(--transition);
+  display: block;
+  margin: 0; /* Убираем все отступы */
 }
 
 .nav__list {
   display: flex;
   list-style: none;
   gap: 30px;
+  margin: 0;
+  padding: 0;
+  align-items: center; /* Центрируем пункты меню */
+  height: 100%;
 }
 
 .nav__link {
@@ -109,6 +122,9 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: var(--transition);
+  display: flex;
+  align-items: center; /* Центрируем текст ссылок */
+  height: 100%;
 }
 
 .nav__link:hover {
@@ -116,7 +132,7 @@ body {
 }
 
 .mobile-menu__logo img {
-  height: 60px;
+  height: 70px;
   width: auto;
   transition: var(--transition);
 }
@@ -132,8 +148,10 @@ body {
   border: none;
   cursor: pointer;
   padding: 5px;
+  align-items: center; /* Центрируем иконки */
+  justify-content: center;
+  height: 100%; /* Занимаем всю высоту */
 }
-
 .mobile-menu-btn__icon {
   width: 25px;
   height: 2px;
@@ -183,6 +201,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.nav--desktop {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .nav__list--mobile {
@@ -1076,7 +1100,7 @@ body {
   }
 
   .logo img {
-    height: 50px;
+    height: 65px; /* Настраиваем высоту для мобильных */
   }
 
   /* Header mobile */
@@ -1084,8 +1108,11 @@ body {
     display: none;
   }
 
+  .logo,
   .mobile-menu-btn {
     display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   /* Hero mobile */
@@ -1268,6 +1295,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  .logo img {
+    height: 65px;
+  }
+
   .hero__subtitle {
     font-size: 30px;
   }
