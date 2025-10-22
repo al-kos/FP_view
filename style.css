@@ -90,7 +90,7 @@ body {
 }
 
 .logo img {
-  height: 60px; /* фиксированная высота */
+  height: 70px; /* фиксированная высота */
   width: auto; /* ширина автоматически */
   transition: var(--transition);
 }
@@ -113,6 +113,16 @@ body {
 
 .nav__link:hover {
   color: var(--red-primary);
+}
+
+.mobile-menu__logo img {
+  height: 60px;
+  width: auto;
+  transition: var(--transition);
+}
+
+.mobile-menu__logo img:hover {
+  transform: scale(1.05);
 }
 
 .mobile-menu-btn {
@@ -1066,7 +1076,7 @@ body {
   }
 
   .logo img {
-    height: 35px;
+    height: 50px;
   }
 
   /* Header mobile */
